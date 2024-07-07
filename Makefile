@@ -10,10 +10,10 @@ all:$(TARGET)
 $(TARGET): main.o prep_terminal.o $(BUILD_DIR)
 	$(CC) $(BUILD_DIR)/main.o $(BUILD_DIR)/prep_terminal.o -o $(TARGET) $(CFLAGS)
 
-main.o: $(SRC)/main.c $(INCLUDE_DIR)/prep_terminal.h $(SRC)/prep_terminal.c
+main.o: $(SRC)/main.c $(INCLUDE_DIR)/prep_terminal.h $(SRC)/prep_terminal.c $(INCLUDE_DIR)/error_constants.h
 	$(CC) -c $(SRC)/main.c -o $(BUILD_DIR)/main.o $(CFLAGS)
 
-prep_terminal.o: $(SRC)/prep_terminal.c $(INCLUDE_DIR)/prep_terminal.h
+prep_terminal.o: $(SRC)/prep_terminal.c $(INCLUDE_DIR)/prep_terminal.h $(INCLUDE_DIR)/error_constants.h
 	$(CC) -c $(SRC)/prep_terminal.c -o $(BUILD_DIR)/prep_terminal.o $(CFLAGS)
 
 $(BUILD_DIR):
